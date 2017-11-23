@@ -11,6 +11,12 @@ Source: CRAN
 Version: 7.3-47
 Hash: cef924b1619219cfc32edbb8a340e652
 
+Package: Peptides
+Source: CRAN
+Version: 2.2
+Hash: 6a1824b0b496bd438a4aeb5a5f0e86b5
+Requires: Rcpp
+
 Package: R6
 Source: CRAN
 Version: 2.2.2

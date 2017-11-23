@@ -30,6 +30,9 @@ source("src/processcripts/proces_InputSeq.R")
 #Scripts dealing with plots
 source("src/processcripts/proces_plots.R")
 
+#Scripts dealing with tabs
+source("src/processcripts/proces_tabs.R")
+
 ########################
 #Launching server
 ########################
@@ -61,7 +64,11 @@ server <- function(input, output) {
     seq_input <- input$textareaID
     ploting_seq_fn(seq_input)
   })
-  #__ PLOT 2 :: AA CLasses __ 
+  #__ PLOT 2 :: AA CLasses __
+  output$plotaaclass<-renderPlot({
+    seq_input <- toupper(input$textareaID)
+    ploting_aa_class_fn(seq_input)
+  })
   #__ PLOT 3 :: AA MemBrane Position Prediction __ 
   
   

@@ -12,10 +12,9 @@ fluidPage(
              br(),
              fluidRow(column
                       (width = 6,
-                        
                         box(    
-                          title = "AA Classification"#,
-                          #plotOutput("plotaaclass",width = 300)
+                          title = "AA Classification",
+                          plotOutput("plotaaclass",width = 300)
                         )),
                       column(width = 6,
                              box(    

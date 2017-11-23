@@ -30,7 +30,7 @@ source("src/processcripts/proces_InputSeq.R")
 
 
 #Function : Plot 1
-#-__ AA counts : barplot __
+#-__ AA counts : barplot, ggplot2 __
 ploting_seq_fn <- function(seq_input) {
   reformed_seq<-unlist(strsplit(trait_seq_fn(seq_input), split=""))
   hhsw<-as.data.frame(table(reformed_seq))
@@ -41,4 +41,20 @@ ploting_seq_fn <- function(seq_input) {
     scale_fill_gradient("Count", low = "green", high = "red")
   theme_bw()
   return (p)
+}
+
+
+#Function : Plot 2
+#-__ AA class : pie, ggplot __
+ploting_aa_class_fn <- function(seq_input) {
+  # Pie Chart with Percentages
+  aa_class_df <- aacomp_seq_fn(seq_input)
+  slices <- aa_class_df$Number
+  lbls <- rownames(aa_class_df)
+  pct <- round(slices/sum(slices)*100)
+  lbls <- paste(lbls, pct) # add percents to labels
+  lbls <- paste(lbls,"%",sep="") # ad % to labels
+  pieaaclass <- pie(slices,labels = lbls, col=rainbow(length(slices)),
+                    main="Pie Chart of AA class") 
+  return (pieaaclass)
 }
