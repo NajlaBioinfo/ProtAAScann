@@ -31,8 +31,8 @@ ui <- fluidPage(
                       #source('menubarsdash/howto.R')),
              tabPanel("About"),
                       #source('menubarsdash/aboutbody.R')),
-             tabPanel("Citing"),
-                      #source('menubarsdash/citing.R')),
+             tabPanel("Citing",
+                      source('src/menubarsdash/citing.R')),
              tabPanel("Contact"),
                       #source('menubarsdash/contactbody.R')),
              tabPanel("License")
