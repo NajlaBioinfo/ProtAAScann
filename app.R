@@ -32,8 +32,10 @@ library(shinydashboard)
 
 
 
+library(stringr)
 
 
+library(ggplot2)
 
 ########################
 #SOURCING SCRIPTS

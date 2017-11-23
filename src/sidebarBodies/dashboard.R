@@ -6,7 +6,6 @@ fluidPage(
              width = "95%",
              solidHeader = TRUE, 
              status = "primary",
-             #textInput("text", "ex: ASQLDRFRVFLGWDNGMMLVYQGNKTYE")
              fluidRow(column
                       (width = 12,
                         textAreaInput("textareaID", "Protein Sequence input(ex): ASQLDRFRVFLGWDNGMMLVYQGNKTYE",value = "ARQQNLFINFCLILIFLLLI", width = NULL, placeholder = NULL))),
@@ -20,8 +19,8 @@ fluidPage(
                         )),
                       column(width = 6,
                              box(    
-                               title = "Amino acid count plot"#,
-                               #plotOutput("plot2",width = 300)
+                               title = "Amino acid count plot",
+                               plotOutput("plot1aacount",width = 300)
                              ))
              )
            )
