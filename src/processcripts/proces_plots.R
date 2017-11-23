@@ -58,3 +58,23 @@ ploting_aa_class_fn <- function(seq_input) {
                     main="Pie Chart of AA class") 
   return (pieaaclass)
 }
+
+
+#Function : Plot 3
+#-__ AA class : pie, ggplot __
+# ploting __ aa __ mb position prediction
+ploting_aa_mbpsopred_fn <- function(seq_input) {
+  # Pie Chart with Percentages
+  seq_to_treat <- trait_seq_fn(seq_input)
+  mb_pos_pred <- membpos(seq_to_treat,angle = 50)
+  df_mb_pos_pred <- (as.data.frame(mb_pos_pred))
+
+  pieaambpred <- ggplot(df_mb_pos_pred,aes(x=df_mb_pos_pred$MembPos,fill="navy")) +
+    geom_bar() +
+    ggtitle("SubSequence membrane position (Predicted)")+
+    theme(legend.title = element_blank()) +
+    theme(legend.position='none') + 
+    xlab("Membrane position")
+  
+  return (pieaambpred)
+}

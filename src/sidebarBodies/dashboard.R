@@ -15,7 +15,7 @@ fluidPage(
                         box(
                           width = "45%",
                           title = "AA Classification",
-                          plotOutput("plotaaclass",width = 400)
+                          plotOutput("plot2aaclass",width = 400)
                         )),
                       column(width = 6,
                              box(
@@ -90,9 +90,9 @@ fluidPage(
              DT::dataTableOutput("predictiontable")),
            box(    
              #title = "AA mb pos pred.",
-             width = "30%"
-             #width = "30%",
-             #plotOutput("plot3",width = 350)
+             #width = "30%"
+             width = "30%",
+             plotOutput("plot3predmb",width = 350)
            )
            
            

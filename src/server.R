@@ -102,12 +102,15 @@ server <- function(input, output) {
     ploting_seq_fn(seq_input)
   })
   #__ PLOT 2 :: AA CLasses __
-  output$plotaaclass<-renderPlot({
+  output$plot2aaclass<-renderPlot({
     seq_input <- toupper(input$textareaID)
     ploting_aa_class_fn(seq_input)
   })
   #__ PLOT 3 :: AA MemBrane Position Prediction __ 
-  
+  output$plot3predmb<-renderPlot({
+    seq_input <- toupper(input$textareaID)
+    ploting_aa_mbpsopred_fn(seq_input)
+  })
   
   #_____ UI BODY PART ________#
   #Body show
