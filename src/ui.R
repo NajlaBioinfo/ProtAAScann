@@ -22,21 +22,21 @@
 
 ui <- fluidPage(
   theme =shinytheme("flatly"),
-  navbarPage("Shiny-Protaascan :: Menu",
+  navbarPage("Protaascan :: Menu",
              tabPanel("Home",
                       source('src/menubarsdash/homebody.R')),
-             tabPanel("References"),
-                      #source('menubarsdash/referencebody.R')),
-             tabPanel("HowTo"),
-                      #source('menubarsdash/howto.R')),
-             tabPanel("About"),
-                      #source('menubarsdash/aboutbody.R')),
+             tabPanel("About",
+                      source('src/menubarsdash/aboutbody.R')),
+             tabPanel("HowTo",
+                      source('src/menubarsdash/howto.R')),
+             tabPanel("References",
+                      source('src/menubarsdash/referencebody.R')),
              tabPanel("Citing",
                       source('src/menubarsdash/citing.R')),
-             tabPanel("Contact"),
-                      #source('menubarsdash/contactbody.R')),
-             tabPanel("License")
-                      #source('menubarsdash/licensebody.R'))
+             tabPanel("Contact",
+                      source('src/menubarsdash/contactbody.R')),
+             tabPanel("License",
+                      source('src/menubarsdash/licensebody.R'))
   ),
   navbarPage("BHNTools©2017-2018, Last update November, 2017")
 )
