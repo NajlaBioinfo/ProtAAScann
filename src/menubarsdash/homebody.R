@@ -24,9 +24,9 @@ dashboardPage(
       
       tabItem(class = "active",tabName = "linking",
               width = "98%",
-              hight = "100%")
-              #hight = "100%",
-              #source('sidebarBodies/protaalinks.R'))
+              #hight = "100%")
+              hight = "100%",
+              source('src/sidebarBodies/protaalinks.R'))
     )
   )
 )

@@ -113,7 +113,7 @@ server <- function(input, output) {
   })
   
   #_____ UI BODY PART ________#
-  #Body show
+  #Body 
   output$body <- renderUI({
     if (USER$Logged == TRUE) {
       div(
@@ -130,4 +130,25 @@ server <- function(input, output) {
       )
     }
   })
+  #Buttons
+  #__ BOUTTON 1 :: SHOW NOTIFICATION __ BEGIN
+  # A queue of notification IDs
+  ids <- character(0)
+  # A counter
+  n <- 0
+  observeEvent(input$show, {
+    a <- tryCatch(warning(Sys.time()), warning=function(w) { w })
+    mess <- a$message
+    showNotification(mess)
+    id <- showNotification(paste("Message", n), duration = NULL)
+    ids <<- c(ids, id)
+    n <<- n + 1
+    #Notif
+    seq_input <- str_trim(input$textareaID)
+    a <- tryCatch(warning(aacomp_seq_fn(seq_input)), warning=function(w) { w })
+    messg <- a$message
+    showNotification(messg)
+    
+  })
+  #__ BOUTTON 1 :: SHOW NOTIFICATION __ END
 }
