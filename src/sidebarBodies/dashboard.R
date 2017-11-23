@@ -40,16 +40,16 @@ fluidPage(
     
   ),
   fluidRow(
-    column(3,
+    column(4,
            box(
              title = "AA class", 
              width = "20%",
              solidHeader = TRUE,
              status = "primary",
              color = "green",
-             background = "green"),
-             #background = "green",
-             #mainPanel(tableOutput("aacompvalues"))),
+             #background = "green"),
+             background = "green",
+             mainPanel(tableOutput("aaclassvalues"))),
            
            box(
              title = "Specific AA", 
@@ -73,16 +73,16 @@ fluidPage(
              width = "20%",
              solidHeader = TRUE,
              color = "green",
-             background = "green")
-             #background = "green",
-             #mainPanel(tableOutput("aacountingvalues")))
+             #background = "green")
+             background = "green",
+             mainPanel(tableOutput("aacountingvalues")))
     ),
-    column(6,
+    column(5,
            box(
              tags$head(tags$style(HTML("#predictiontable {color:black}"))),
              title = "AA prediction", 
              status = "primary",
-             width = "30%",
+             width = "90%",
              solidHeader = TRUE,
              color = "green",
              background = "navy"),

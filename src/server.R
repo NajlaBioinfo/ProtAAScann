@@ -63,8 +63,24 @@ server <- function(input, output) {
   })
   
   #__ TAB 2 :: AA CLasses __ 
+  output$aaclassvalues <- renderTable({
+    seq_input <- input$textareaID
 
-  #__ TAB 3 :: AA MemBrane Position Prediction __ 
+    data.frame(
+      Name = rownames(aacomp_seq_fn(seq_input)) ,
+      Value =aacomp_seq_fn(seq_input) ,
+      stringsAsFactors = FALSE)
+  })
+  
+  #__ TAB 3 :: AA Counts and Perc. __ 
+  output$aacountingvalues <- renderTable({
+    seq_input <- input$textareaID
+    data.frame(
+      aminoc_acid_perc <- percent_aa_seq_fn(seq_input),
+      stringsAsFactors = FALSE)
+  })
+  
+  #__ TAB 4 :: AA MemBrane Position Prediction __ 
   
   
   #Rendering  plots

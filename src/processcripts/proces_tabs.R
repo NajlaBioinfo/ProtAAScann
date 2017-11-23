@@ -30,8 +30,7 @@ source("src/processcripts/proces_InputSeq.R")
 
 
 
-
-#Function : df 1 for plot 1
+#Function : df 1 for plot 1 / table2
 #-__ AA class: aacomp, peptides pkg __
 aacomp_seq_fn <- function(seq_input) {
   seq_to_treat <- trait_seq_fn(seq_input)
@@ -39,29 +38,30 @@ aacomp_seq_fn <- function(seq_input) {
   return (as.data.frame(aaComp_tab))
 }
 
+
 #Function : df 2 for Tabs 1
 #-__ Protein infos : fncs from, peptides pkg __
 proteinfo_tab_fn <- function(seq_input) {
   seq_to_treat <- trait_seq_fn(seq_input)
   
   #LEN SEQOUTPUT
-  lenseq  <- length_seq_fn(seq_input)
+  lenseq  <- length_seq_fn(seq_to_treat)
   #pI SEQOUTPUT
-  piSeq  <- pI_seq_fn(seq_input)
+  piSeq  <- pI_seq_fn(seq_to_treat)
   #MwF SEQOUTPUT    
-  MwFseq <- MwF_seq_fn(seq_input)
+  MwFseq <- MwF_seq_fn(seq_to_treat)
   #MwT SEQOUTPUT    
-  MwTseq <- MwT_seq_fn(seq_input)
+  MwTseq <- MwT_seq_fn(seq_to_treat)
   #aIdx SEQOUTPUT
-  aIdxseq <- aIdx_seq_fn(seq_input)
+  aIdxseq <- aIdx_seq_fn(seq_to_treat)
   #InstabilityIndex SEQOUTPUT       
-  iidexseq <- instabilityidx_seq_fn(seq_input)
+  iidexseq <- instabilityidx_seq_fn(seq_to_treat)
   #InstabilityIndex SEQOUTPUT      
-  bomanIdxseq <- bomanidx_seq_fn(seq_input)
+  bomanIdxseq <- bomanidx_seq_fn(seq_to_treat)
   #Hydrophobicity SEQOUTPUT    
-  Hydrophseq <- hydrophobicity_seq_fn(seq_input)
+  Hydrophseq <- hydrophobicity_seq_fn(seq_to_treat)
   #Lipophilicity SEQOUTPUT    
-  Lipophseq <- Lipophilicity_seq_fn(seq_input)
+  Lipophseq <- Lipophilicity_seq_fn(seq_to_treat)
 
   
   proteinfo_tab <- data.frame(
@@ -87,3 +87,22 @@ proteinfo_tab_fn <- function(seq_input) {
   colnames(proteinfo_tab) <-c("Prameter.","Value")
   return (proteinfo_tab)
 }
+
+
+#Function : df 3 for Tabs 3
+#-__ AA counts and Percentage __
+percent_aa_seq_fn <- function(seq_input) {
+  seq_to_test <- trait_seq_fn(seq_input)
+  seq_to_treat <- unlist(strsplit(seq_to_test, split=""))
+  aa_perc <-as.data.frame(table(seq_to_treat))
+  paa<-round(aa_perc$Freq / str_length(seq_to_test)*100,digits = 1)
+  
+  #return (aa_perc)
+  aa_perc_clean <- cbind(aa_perc,paa)
+  colnames(aa_perc_clean) <- c("AA","COUNT","PERCENT.")
+  
+  return(aa_perc_clean)
+}
+
+
+
