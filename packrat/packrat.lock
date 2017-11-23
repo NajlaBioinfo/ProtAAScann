@@ -43,6 +43,12 @@ Source: CRAN
 Version: 0.5
 Hash: 463550cf44fb6f0a2359368f42eebe62
 
+Package: miniUI
+Source: CRAN
+Version: 0.1.1
+Hash: e85626581f80b1fe6c92a96ec348efc5
+Requires: htmltools, shiny
+
 Package: packrat
 Source: CRAN
 Version: 0.4.8-1
@@ -54,6 +60,30 @@ Version: 1.0.5
 Hash: 4d47532a807122bfd6bc3818310f9d2e
 Requires: R6, digest, htmltools, httpuv, jsonlite, mime, sourcetools,
     xtable
+
+Package: shinyBS
+Source: CRAN
+Version: 0.61
+Hash: 4644935bd93e62a0b82686b26af7efc2
+Requires: htmltools, shiny
+
+Package: shinydashboard
+Source: CRAN
+Version: 0.6.1
+Hash: b48e9bf83e320416eca507dd0d75b362
+Requires: htmltools, shiny
+
+Package: shinyjs
+Source: CRAN
+Version: 0.9.1
+Hash: 80334571084beac03513e51be8a35554
+Requires: digest, htmltools, jsonlite, miniUI, shiny
+
+Package: shinythemes
+Source: CRAN
+Version: 1.1.1
+Hash: d15f59eaa7a9a0668cea3af7f477820c
+Requires: shiny
 
 Package: sourcetools
 Source: CRAN
