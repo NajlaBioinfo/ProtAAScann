@@ -23,8 +23,8 @@
 ui <- fluidPage(
   theme =shinytheme("flatly"),
   navbarPage("Shiny-Protaascan :: Menu",
-             tabPanel("Home"),
-                      #source('menubarsdash/homebody.R')),
+             tabPanel("Home",
+                      source('src/menubarsdash/homebody.R')),
              tabPanel("References"),
                       #source('menubarsdash/referencebody.R')),
              tabPanel("HowTo"),
