@@ -81,6 +81,15 @@ server <- function(input, output) {
   })
   
   #__ TAB 4 :: AA MemBrane Position Prediction __ 
+  #SPECIFIC AA amino acid count
+  output$specificaavalues <- renderTable({
+    seq_input <- input$textareaID
+    data.frame(
+      aminoc_acid_spec <- specific_aa_seq_fn(seq_input),
+      stringsAsFactors = FALSE)
+  })
+  
+  #__ TAB 4 :: AA MemBrane Position Prediction __ 
   
   
   #Rendering  plots

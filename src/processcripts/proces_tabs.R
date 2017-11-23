@@ -105,4 +105,28 @@ percent_aa_seq_fn <- function(seq_input) {
 }
 
 
-
+#Function : df 4 for Tabs 4
+#-__ Specific AA counts and Percentage __
+specific_aa_seq_fn <- function(seq_input) {
+  pattern_aa <- c('B','Z','U','X')
+  
+  seq_to_test <- trait_seq_fn(seq_input)
+  seq_to_treat <- unlist(strsplit(seq_to_test, split=""))
+  
+  check_el_in <- which(pattern_aa %in% seq_to_treat)
+  
+  if (length(check_el_in) >0) {
+    occpat<-c(length(which(seq_to_treat == 'B')),length(which(seq_to_treat == 'Z')),length(which(seq_to_treat == 'U')),length(which(seq_to_treat == 'X')))
+    
+    p_aaspec <- round(occpat / str_length(seq_to_test)*100,digits = 1)
+    count_aaspec<-cbind(pattern_aa,occpat,p_aaspec)
+    aa_cleans<-as.data.frame(count_aaspec)
+    colnames(aa_cleans) <- c("AA","COUNT","PERCENT.")
+    return(aa_cleans)
+    
+  } else {
+    aa_cleans<-cbind(pattern_aa,c(0,0,0,0))
+    colnames(aa_cleans) <- c("AA","COUNT")
+    return(aa_cleans) 
+  }
+}
