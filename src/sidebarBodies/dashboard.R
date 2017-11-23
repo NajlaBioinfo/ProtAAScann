@@ -1,9 +1,9 @@
 fluidPage(
   fluidRow(
     #INPUT FOR SEQ
-    column(8,
+    column(9,
            box(
-             width = "95%",
+             width = "99%",
              solidHeader = TRUE, 
              status = "primary",
              fluidRow(column
@@ -12,28 +12,30 @@ fluidPage(
              br(),
              fluidRow(column
                       (width = 6,
-                        box(    
+                        box(
+                          width = "45%",
                           title = "AA Classification",
-                          plotOutput("plotaaclass",width = 300)
+                          plotOutput("plotaaclass",width = 400)
                         )),
                       column(width = 6,
-                             box(    
+                             box(
+                               width = "45%",
                                title = "Amino acid count plot",
-                               plotOutput("plot1aacount",width = 300)
+                               plotOutput("plot1aacount",width = 380)
                              ))
              )
            )
     ),
     br(),
-    column(4,
+    column(3,
            box(
              title = "Protein Infos",
-             width = "45%",
+             width = "99%",
              solidHeader = TRUE, 
              status = "primary",
-             background = "olive")
-             #background = "olive",
-             #mainPanel(tableOutput("values")))
+             #background = "olive")
+             background = "olive",
+             mainPanel(tableOutput("proteinfovalues")))
     )
     
   ),

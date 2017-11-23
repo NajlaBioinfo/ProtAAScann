@@ -48,13 +48,22 @@ server <- function(input, output) {
     seq_input <- input$textareaID
   })
   
+  
 
   
 
   #_____ RENDERING VALUES ______#
   #Rendering  tables
-  #__ TAB 1 :: AA Counts __
+  #__ TAB 1 :: Protein infos __
+  output$proteinfovalues <- renderTable({
+    seq_input <- input$textareaID
+    data.frame(
+      proteinfo_tab <- proteinfo_tab_fn(seq_input),
+      stringsAsFactors = FALSE)
+  })
+  
   #__ TAB 2 :: AA CLasses __ 
+
   #__ TAB 3 :: AA MemBrane Position Prediction __ 
   
   
