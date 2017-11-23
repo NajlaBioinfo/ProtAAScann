@@ -1,7 +1,7 @@
 dashboardPage(
   dashboardHeader(
     title = "Home",
-    titleWidth = 200,
+    titleWidth = 100,
     dropdownMenu(type = "notifications",
                  notificationItem(
                    text = "MongoDB with docker only.",
@@ -18,9 +18,9 @@ dashboardPage(
     tabItems(
       tabItem(class = "active",tabName = "board",
               width = "98%",
-              hight = "100%"),
-              #hight = "100%",
-              #source('sidebarBodies/dashboard.R')),
+              #hight = "100%"),
+              hight = "100%",
+              source('src/sidebarBodies/dashboard.R')),
       
       tabItem(class = "active",tabName = "linking",
               width = "98%",
