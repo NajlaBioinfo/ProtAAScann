@@ -30,13 +30,15 @@ library(shinyBS)
 library(shinythemes)
 library(shinydashboard)
 
+
+
 library(stringr)
 
 library(ggplot2)
 
 library(Peptides)
 
-
+library(DT)
 
 ########################
 #SOURCING SCRIPTS

@@ -50,8 +50,6 @@ server <- function(input, output) {
   
   
 
-  
-
   #_____ RENDERING VALUES ______#
   #Rendering  tables
   #__ TAB 1 :: Protein infos __
@@ -80,8 +78,8 @@ server <- function(input, output) {
       stringsAsFactors = FALSE)
   })
   
-  #__ TAB 4 :: AA MemBrane Position Prediction __ 
-  #SPECIFIC AA amino acid count
+  
+  #__ TAB 4 :: SPECIFIC AA amino acid count __ 
   output$specificaavalues <- renderTable({
     seq_input <- input$textareaID
     data.frame(
@@ -89,7 +87,12 @@ server <- function(input, output) {
       stringsAsFactors = FALSE)
   })
   
-  #__ TAB 4 :: AA MemBrane Position Prediction __ 
+  
+  #__ TAB 5 :: AA MemBrane Position Prediction __ 
+  output$predictiontable= DT::renderDataTable({
+    seq_input <- toupper(input$textareaID)
+    predposition_mb_seq_fn(seq_input)
+  })
   
   
   #Rendering  plots

@@ -82,13 +82,12 @@ fluidPage(
              tags$head(tags$style(HTML("#predictiontable {color:black}"))),
              title = "AA prediction", 
              status = "primary",
-             width = "90%",
+             width = "30%",
              solidHeader = TRUE,
              color = "green",
-             background = "navy"),
-             #background = "navy",
-             #mainPanel(tableOutput("predictionvalues"))),
-             #DT::dataTableOutput("predictiontable")),
+             #background = "navy"),
+             background = "navy",
+             DT::dataTableOutput("predictiontable")),
            box(    
              #title = "AA mb pos pred.",
              width = "30%"

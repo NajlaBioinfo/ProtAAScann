@@ -130,3 +130,11 @@ specific_aa_seq_fn <- function(seq_input) {
     return(aa_cleans) 
   }
 }
+
+#Function : df 5 for Tabs 5
+#-__ AA MemBrane Position Prediction  __
+predposition_mb_seq_fn <- function(seq_input) {
+  seq_to_treat <- trait_seq_fn(seq_input)
+  mb_pos_pred <- membpos(seq_to_treat,angle = 50)
+  return (as.data.frame(mb_pos_pred))
+}
