@@ -1,0 +1,10 @@
+name: protaascann
+title:
+username:
+account: wordscloud
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 239460
+bundleId: 1092986
+url: https://wordscloud.shinyapps.io/protaascann/
+when: 1511464362.51859

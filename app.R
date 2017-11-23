@@ -40,6 +40,9 @@ library(Peptides)
 
 library(DT)
 
+library(rsconnect)
+
+
 ########################
 #SOURCING SCRIPTS
 ########################
