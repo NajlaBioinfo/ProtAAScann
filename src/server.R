@@ -160,7 +160,7 @@ server <- function(input, output) {
     seq_input <- input$textareaID
     switch(input$dataset,
            "Protein_infos" = proteinfo_tab_fn(seq_input),
-           "AA_classification" = specific_aa_seq_fn(seq_input),
+           "AA_classification" = aacomp_seq_fn(seq_input),
            "AA_counts" = percent_aa_seq_fn(seq_input),
            "AA_Mbpos_pred"= predposition_mb_seq_fn(seq_input))
   })
@@ -182,4 +182,29 @@ server <- function(input, output) {
   #__ TABLE EXPORT __ END
   
   
+  #__ PLOT EXPORT __ BEGIN
+  # Reactive value for selected dataset ----
+  plotInput <- reactive({
+    seq_input <- input$textareaID
+    switch(input$plotset,
+           "Plot_AAcount" = ploting_seq_fn(seq_input),
+           "Pie_AAclass" = ploting_aa_class_gg_fn(seq_input),
+           "Plot_AAmbpred"=  ploting_aa_mbpsopred_fn(seq_input))
+  })
+  
+  # pLOT of selected dataset ----
+  output$ploting <- renderPlot({
+    print(plotInput())
+  })
+  
+  # Downloadable PLOT of selected dataset ----
+  output$downloadPlot <- downloadHandler(
+    filename = function() { paste(input$plotset, '.png', sep='') },
+    #filename = function() { paste('Plotexport', '.png', sep='') },
+    content = function(file) {
+      ggsave(file,plotInput())
+      #plotPNG(plotInput(), filename = tempfile(fileext = ".png"), width = 400,height = 400, res = 72)
+    }
+  )
+  #__ PLOT EXPORT __ END
 }

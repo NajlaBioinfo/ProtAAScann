@@ -59,6 +59,38 @@ ploting_aa_class_fn <- function(seq_input) {
   return (pieaaclass)
 }
 
+#Function : Plot 2aa
+ploting_aa_class_gg_fn <- function(seq_input) {
+  # Pie Chart with Percentages
+  aa_class_df <- aacomp_seq_fn(seq_input)
+  slices <- aa_class_df$Number
+  lbls <- rownames(aa_class_df)
+  pct <- round(slices/sum(slices)*100)
+  lbls <- paste(lbls, pct) # add percents to labels
+  lbls <- paste(lbls,"%",sep="") # ad % to labels
+  df <- data.frame(
+    group = lbls,
+    value = slices
+  )
+  head(df)
+ 
+  # Bar plot
+  bp<- ggplot(df, aes(x="", y=value, fill=group))+
+    geom_bar(width = 1, stat = "identity")
+  
+  #__OK
+  pie <- bp + coord_polar("y", start=0)
+  
+  pieaaclassgg <- pie + 
+    scale_colour_gradientn(colours=rainbow(length(slices)))+
+    ggtitle("Pie Chart of AA class")+
+    xlab("Groups") +
+    ylab("Counts")+
+    #geom_label_repel(aes(label = lbls), size=5, show.legend = F, nudge_x = 1) +
+    guides(fill = guide_legend(title = "Group"))
+  
+  return (pieaaclassgg)
+}
 
 #Function : Plot 3
 #-__ AA class : pie, ggplot __
@@ -75,6 +107,5 @@ ploting_aa_mbpsopred_fn <- function(seq_input) {
     theme(legend.title = element_blank()) +
     theme(legend.position='none') + 
     xlab("Membrane position")
-  
   return (pieaambpred)
 }
