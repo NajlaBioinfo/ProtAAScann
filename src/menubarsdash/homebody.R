@@ -12,15 +12,20 @@ dashboardPage(
     width = 150,
     sidebarMenu(
       menuItem("Dashboard", tabName = "board", icon = icon("dashboard")),
+      menuItem("Export", tabName = "rowexport", icon = icon("th-list")),
       menuItem("Links", tabName = "linking", icon = icon("link")))
   ),
   dashboardBody(
     tabItems(
       tabItem(class = "active",tabName = "board",
-              width = "98%",
+              width = "99%",
               #hight = "100%"),
               hight = "100%",
               source('src/sidebarBodies/dashboard.R')),
+      
+      
+      
+      
       
       tabItem(class = "active",tabName = "linking",
               width = "98%",

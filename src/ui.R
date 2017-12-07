@@ -38,7 +38,7 @@ ui <- fluidPage(
              tabPanel("License",
                       source('src/menubarsdash/licensebody.R'))
   ),
-  navbarPage("BHNTools©2017-2018, Last update November, 2017")
+  navbarPage("BHNTools©2017-2018, Last update December, 2017")
 )
 #basic
 #ui <- fluidPage(

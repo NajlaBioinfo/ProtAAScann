@@ -30,7 +30,7 @@ fluidPage(
     column(3,
            box(
              title = "Protein Infos",
-             width = "99%",
+             width = "100%",
              solidHeader = TRUE, 
              status = "primary",
              #background = "olive")
