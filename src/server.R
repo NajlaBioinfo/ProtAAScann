@@ -151,4 +151,35 @@ server <- function(input, output) {
     
   })
   #__ BOUTTON 1 :: SHOW NOTIFICATION __ END
+  
+  
+  
+  #__ TABLE EXPORT __ BEGIN
+  # Reactive value for selected dataset ----
+  datasetInput <- reactive({
+    seq_input <- input$textareaID
+    switch(input$dataset,
+           "Protein_infos" = proteinfo_tab_fn(seq_input),
+           "AA_classification" = specific_aa_seq_fn(seq_input),
+           "AA_counts" = percent_aa_seq_fn(seq_input),
+           "AA_Mbpos_pred"= predposition_mb_seq_fn(seq_input))
+  })
+  
+  # Table of selected dataset ----
+  output$table <- renderTable({
+    datasetInput()
+  })
+  
+  # Downloadable csv of selected dataset ----
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste(input$dataset, ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(datasetInput(), file, row.names = FALSE)
+    }
+  )
+  #__ TABLE EXPORT __ END
+  
+  
 }
