@@ -5,8 +5,6 @@ account: wordscloud
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 239460
-bundleId: 1093029
+bundleId: 1122106
 url: https://wordscloud.shinyapps.io/protaascann/
-when: 1511466633.99048
-asMultiple: FALSE
-asStatic: FALSE
+when: 1512688070.90161
