@@ -1,5 +1,5 @@
 # Protaascann
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/NajlaBioinfo/ProtAAScann.svg?branch=master)](https://travis-ci.org/NajlaBioinfo/ProtAAScann)
 --------------------------------------
 
 Protaascan shiny web app.

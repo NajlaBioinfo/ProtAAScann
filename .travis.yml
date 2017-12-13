@@ -12,4 +12,3 @@ before_install:
 
 script:
   - docker run --name protaascan -d -p 8787:8787 -e USER='rstudio' -e PASSWORD='rstudio' najlabioinfo/shinydocker:latest
-  - bundle exec rake test
