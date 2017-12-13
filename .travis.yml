@@ -1,0 +1,13 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+before_install:
+  - docker docker pull najlabioinfo/shinydocker
+
+script:
+  - docker run --name protaascan -d -p 8787:8787 -e USER='rstudio' -e PASSWORD='rstudio' najlabioinfo/shinydocker:latest
+  -  docker exec -it protaascan R -e "shiny::runApp('/home/rstudio/Nov17/ProtAAScann')"
